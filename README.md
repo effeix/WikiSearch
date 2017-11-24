@@ -16,11 +16,9 @@ To deploy our search engine as a service, we used [AWS (Amazon Web Services)](ht
 ### How it works
 Our algorithm uses the concepts of TF-IDF to search and rank relevant documents according to the words entered by the user. The first step is to generate three data sets, using MongoDB Collections: an inverted index - mapping words to documents where this word occurs - an IDF table, mapping words to its correspondent [IDF (Inverse Document Frequency)](https://en.wikipedia.org/wiki/Tf%E2%80%93idf#Inverse_document_frequency_2) and a Document collection, where each Document is an object containing document title, document id and document content.
 
-After generating the three collections,
+After generating the three collections,the algorithm finds all documents in which the entered words appear and intersects them, leaving only the documents where both words appear at the same time. Next, our engine searches for the IDF of each word and multiplies it by TF of each word in each document, generating the TF-IDF for each word in each document. Last but not least, we sum all TF-IDF for each word, for each document, obtaining a single value per document.
 
-### Project Schematic
-
-- Add schematic
+Finally, the documents are ordered in descending order, based on the document's TF-IDF.
 
 ### Using WikiSearch
 ##### Currently, WikiSearch only works in Linux operating system. The instructions below are specific to Ubuntu/Debian Linux.
