@@ -13,6 +13,11 @@ To deploy our search engine as a service, we used [AWS (Amazon Web Services)](ht
 
 - Images (apache spark, mongodb, zeppelin, python3, aws)
 
+### How it works
+Our algorithm uses the concepts of TF-IDF to search and rank relevant documents according to the words entered by the user. The first step is to generate three data sets, using MongoDB Collections: an inverted index - mapping words to documents where this word occurs - an IDF table, mapping words to its correspondent [IDF (Inverse Document Frequency)](https://en.wikipedia.org/wiki/Tf%E2%80%93idf#Inverse_document_frequency_2) and a Document collection, where each Document is an object containing document title, document id and document content.
+
+After generating the three collections,
+
 ### Project Schematic
 
 - Add schematic
